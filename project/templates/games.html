@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block extra_head %}
+    <script type="text/javascript" src="{% static 'wgo/wgo.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'wgo/wgo.player.min.js' %}"></script>
+    <link type="text/css" href="{% static 'wgo/wgo.player.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div id="player" style="width: 700px"></div>
+
+{% endblock content %}
+
+{% block extra_js %}
+    <script>
+      var game_path = '{{ game.sgf_file.url }}';
+    </script>
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script> <!-- linking WGo javascript -->
+{% endblock extra_js %}
