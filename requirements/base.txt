@@ -1,11 +1,14 @@
+boto==2.15.0
 Django==1.6.5
 bpython==0.13
-django-braces==1.4.0
 dj-database-url==0.3.0
-django-model-utils==2.0.3
 dj-static==0.0.5
+django-braces==1.4.0
+django-model-utils==2.0.3
+django-storages==1.1.8
 logutils==0.3.3
 psycopg2==2.5.2
+pylibmc==1.4.0
 South==0.8.4
 static==0.4
 wsgiref==0.1.2
