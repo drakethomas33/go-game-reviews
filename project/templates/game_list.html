@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Games</h1>
+    {% for game in games %}
+        <p><a href="{% url 'games' game.id %}">game.id</a></p>
+    {% endfor %}
+{% endblock content %}
