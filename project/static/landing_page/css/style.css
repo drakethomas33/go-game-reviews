@@ -283,7 +283,7 @@ ul {
 	padding-left: 100px;
 }
 
-.form_register {
+.form_register, .background-box {
 	width: 100%;
 	background: rgba(120, 120, 120, 0.45);
 	margin: 0 auto;
@@ -291,6 +291,14 @@ ul {
 	-webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+}
+
+.background-box p {
+    font-size: 12pt;
+}
+
+.error {
+    color: red;
 }
 
 .form_register h2 {

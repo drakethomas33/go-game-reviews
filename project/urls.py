@@ -10,6 +10,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', 'project.go.views.index', name='index'),
+    url(r'^thanks/$', 'project.go.views.thanks', name='index'),
     url(r'^games/(?P<game_id>[\d]+)/$', 'project.go.views.games', name='games'),
 
     # Examples:

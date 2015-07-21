@@ -149,6 +149,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
+    'project.context_processors.analytics_keys'
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
@@ -290,3 +291,7 @@ def get_cache():
             }
 
 CACHES = get_cache()
+
+AUTH_USER_MODEL = 'go.GoUser'
+
+MIXPANEL_KEY = get_env_variable('MIXPANEL_KEY')

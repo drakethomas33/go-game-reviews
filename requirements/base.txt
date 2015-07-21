@@ -8,6 +8,7 @@ django-model-utils==2.0.3
 django-pylibmc==0.5.0
 django-storages==1.1.8
 logutils==0.3.3
+mailchimp==2.0.9
 psycopg2==2.5.2
 pylibmc==1.4.0
 South==0.8.4
