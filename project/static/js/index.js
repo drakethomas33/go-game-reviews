@@ -1,3 +1,3 @@
 $('document').ready(function(){
-    mixpanel.track('Moo')
+    mixpanel.track('Moo0')
 });
