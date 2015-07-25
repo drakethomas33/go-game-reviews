@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 import mailchimp
 
 from django.contrib.auth import authenticate, login
+from django.core.mail import send_mail
 from django.db import IntegrityError
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
@@ -10,7 +11,6 @@ from django.template import RequestContext
 from .models import GoGame, GoUser
 
 def index(request):
-    print 'YEASSS????'
     error = None
     if request.method == 'POST':
         email = request.POST['email']
@@ -22,11 +22,16 @@ def index(request):
             m = mailchimp.Mailchimp('22d12387b2447552b61abd6dc2b441e1-us9')
             try:
                 m.lists.subscribe('cb60a9e4bb', {'email': email}, double_optin=False)
-                print 'YEAH'
+                error = None
             except mailchimp.Error as e:
-                print str(e)
-                pass
-            print 'ma!!!!!'
+                error = str(e)
+            send_mail(
+                'New sign up to GoGameReview - {}'.format(email),
+                'And Mailchimp too!' if not error else 'Damn: {}'.format(error),
+                'hello@gogamereview.com',
+                ['drakethomas33@gmail.com'],
+                fail_silently=False
+            )
             return HttpResponseRedirect('/thanks/')
         except IntegrityError:
             error = 'Oops! This email address is already registered.'
@@ -36,7 +41,6 @@ def index(request):
         'games': games,
         'error': error
     }
-    print 'hello???'
     return render_to_response('index.html', context, RequestContext(request))
 
 
