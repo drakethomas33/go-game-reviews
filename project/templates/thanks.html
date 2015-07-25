@@ -12,3 +12,15 @@
             <div class="col-sm-4"></div>
         </div>
 {% endblock content %}
+
+{% block extrajs %}
+    <script>
+        $('document').ready(function(){
+            var email = '{{ user.username }}';
+            mixpanel.track('Thanks page view');
+            mixpanel.alias(email);
+            mixpanel.people.set({"$email": email});
+            mixpanel.identity(email);
+        });
+    </script>
+{% endblock extrajs %}

@@ -1,3 +1,3 @@
 $('document').ready(function(){
-    mixpanel.track('Moo0')
+    mixpanel.track('Landing page view');
 });
